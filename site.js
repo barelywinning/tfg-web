@@ -401,7 +401,6 @@ function renderSolutionDetail() {
         <h3>Systems and services</h3>
         <ul class="item-grid">${item.items.map(text => `<li>${text}</li>`).join("")}</ul>
         <div class="scope-note"><strong>Additional detail.</strong> ${item.related}</div>
-        <p class="detail-link"><a class="text-link" href="../partners.html">View the technology ecosystem →</a></p>
       </div>
     </div></section>
     ${ctaBand("Discuss a scope", "Talk to TFG about your requirements and delivery context.", "../contact.html", "Contact TFG")}`;

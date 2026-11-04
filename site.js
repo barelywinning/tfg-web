@@ -192,7 +192,7 @@ function renderHeader() {
       <div class="header-inner">
         <a class="brand" href="${basePath()}index.html" aria-label="TechFusionGulf home">
           <span class="brand-mark"><img class="brand-logo" src="${basePath()}assets/brand/tfg-logo.png" alt=""></span>
-          <span class="brand-name"><strong>TechFusionGulf</strong><span>Technology. Infrastructure. Engineering.</span></span>
+          <span class="brand-name"><strong>TechFusionGulf</strong><span>Technology. Infrastructure. Engineering.</span><span class="brand-location">Muscat, GCC and Beyond.</span></span>
         </a>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation">☰</button>
         <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">

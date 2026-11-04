@@ -334,10 +334,6 @@ function renderHome() {
       <p><a class="text-link" href="experience.html">Explore our experience →</a></p>
     </div></section>
     <section class="section section-compact"><div class="container">
-      <div class="section-heading"><div><span class="eyebrow section-kicker">Technology ecosystem</span><h2>Technologies for enterprise and industry.</h2></div><p>Our technology ecosystem spans communications, enterprise IT, automation and control. Relationship and authorisation status should be confirmed for each engagement.</p></div>
-      <p><a class="text-link" href="partners.html">Explore our technology ecosystem →</a></p>
-    </div></section>
-    <section class="section section-compact"><div class="container">
       <div class="section-heading"><div><span class="eyebrow section-kicker">How we engage</span><h2>From requirements to support.</h2></div><p>Engagements can include the phases below, with the work shaped to the agreed scope and customer requirements.</p></div>
       <div class="process-grid">
         <div class="process-step"><span class="process-number">01 / PROOF OF CONCEPT</span><h3>Validate the approach</h3><p>Test assumptions and demonstrate the proposed direction before finalising scope.</p></div>

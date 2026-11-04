@@ -134,7 +134,7 @@ const industryGroups = [
   { title: "Commercial & Digital", industries: ["Hospitality", "Retail", "E-commerce & m-commerce", "Media & entertainment"] }
 ];
 
-const industrialClients = [
+const industrialPastOrganizations = [
   { name: "Honeywell Automation", logo: "honeywell-automation.png", website: "https://automation.honeywell.com/" },
   { name: "Rockwell Automation", website: "https://www.rockwellautomation.com/" },
   { name: "SKF India", logo: "skf-india.png", website: "https://www.skf.com/in" },
@@ -145,7 +145,7 @@ const industrialClients = [
   { name: "Sensia Energy" },
   { name: "ARG Technology" }
 ];
-const enterpriseClients = [
+const enterprisePastOrganizations = [
   { name: "Datamatics", logo: "datamatics.png", website: "https://www.datamatics.com/" },
   { name: "Snapdeal", logo: "snapdeal.png", website: "https://www.snapdeal.com/" },
   { name: "AJIO", logo: "ajio.png", website: "https://www.ajio.com/" },
@@ -159,22 +159,6 @@ const enterpriseClients = [
   { name: "Intelliswift", logo: "intelliswift.png", website: "https://www.intelliswift.com/" },
   { name: "EzMall" },
   { name: "ATRIBS" }
-];
-
-const partners = [
-  { group: "Networking & communications", names: [
-    { name: "Aruba", logo: "aruba.png" }, { name: "Ruijie", logo: "ruijie.png" },
-    { name: "24online" }, { name: "Avaya", logo: "avaya.png" },
-    { name: "Alcatel-Lucent Enterprise", logo: "alcatel-lucent-enterprise.png" },
-    { name: "Moxa", logo: "moxa.png" }
-  ] },
-  { group: "Security", names: [{ name: "Fortinet", logo: "fortinet.png" }] },
-  { group: "Industrial & building automation", names: [
-    { name: "Honeywell", logo: "honeywell-automation.png" }, { name: "Rockwell Automation" },
-    { name: "Emerson", logo: "emerson.png" }, { name: "ABB", logo: "abb.png" },
-    { name: "Siemens", logo: "siemens.png" }, { name: "Delta", logo: "delta.png" }
-  ] },
-  { group: "Enterprise IT management", names: [{ name: "ManageEngine", logo: "manageengine.png" }] }
 ];
 
 const solutionDivisions = [
@@ -222,8 +206,7 @@ function renderHeader() {
           </details>
           ${navLink("industries.html", "Industries", active === "industries")}
           ${navLink("norden.html", "Norden", active === "norden")}
-          ${navLink("experience.html", "Our Experience", active === "experience")}
-          ${navLink("partners.html", "Partners", active === "partners")}
+          ${navLink("experience.html", "Past Experience", active === "experience")}
           ${navLink("about.html", "About", active === "about")}
           ${navLink("contact.html", "Contact", active === "contact")}
         </nav>
@@ -272,8 +255,7 @@ function renderFooter() {
             <a href="${basePath()}solutions.html">Solutions</a>
             <a href="${basePath()}industries.html">Industries</a>
             <a href="${basePath()}norden.html">Norden products</a>
-            <a href="${basePath()}experience.html">Our Experience</a>
-            <a href="${basePath()}partners.html">Partners &amp; platforms</a>
+            <a href="${basePath()}experience.html">Past experience</a>
           </div>
           <div class="footer-column"><strong>Company</strong>
             <a href="${basePath()}about.html">About TFG</a>
@@ -348,12 +330,8 @@ function renderHome() {
       <div class="industry-list">${industryGroups[0].industries.map(name => `<a href="industries.html">${name}</a>`).join("")}</div>
     </div></section>
     <section class="section"><div class="container">
-      <div class="section-heading"><div><span class="eyebrow section-kicker">Experience</span><h2>Experience across industrial and digital organisations.</h2></div><p>Explore the company ecosystem and learn how our capabilities align with operational and enterprise environments.</p></div>
-      <p><a class="text-link" href="experience.html">Explore our experience →</a></p>
-    </div></section>
-    <section class="section section-compact"><div class="container">
-      <div class="section-heading"><div><span class="eyebrow section-kicker">Technology ecosystem</span><h2>Technologies for enterprise and industry.</h2></div><p>Our technology ecosystem spans communications, enterprise IT, automation and control. Relationship and authorisation status should be confirmed for each engagement.</p></div>
-      <p><a class="text-link" href="partners.html">Explore our technology ecosystem →</a></p>
+      <div class="section-heading"><div><span class="eyebrow section-kicker">Past experience</span><h2>Experience our team brings to today's work.</h2></div><p>Our team has worked across industrial and digital environments. Explore the experience behind TechFusionGulf's capabilities.</p></div>
+      <p><a class="text-link" href="experience.html">Explore our past experience →</a></p>
     </div></section>
     <section class="section section-compact"><div class="container">
       <div class="section-heading"><div><span class="eyebrow section-kicker">How we engage</span><h2>From requirements to support.</h2></div><p>Engagements can include the phases below, with the work shaped to the agreed scope and customer requirements.</p></div>
@@ -367,10 +345,10 @@ function renderHome() {
     ${ctaBand("Have a project or technical requirement?", "Tell us what you need to connect, automate or improve.", "contact.html", "Contact TFG")}`;
 }
 
-function companyEcosystem() {
+function pastExperienceOrganizations() {
   const groups = [
-    { title: "Industrial & Energy", organizations: industrialClients },
-    { title: "Enterprise & Digital", organizations: enterpriseClients }
+    { title: "Industrial & Energy", organizations: industrialPastOrganizations },
+    { title: "Enterprise & Digital", organizations: enterprisePastOrganizations }
   ];
   return `<div class="company-ecosystem">${groups.map(group => `
     <section class="ecosystem-group" aria-labelledby="ecosystem-${group.title.toLowerCase().replaceAll(" ", "-").replaceAll("&", "and")}">
@@ -384,15 +362,6 @@ function companyEcosystem() {
         </li>`).join("")}
       </ul>
     </section>`).join("")}
-  </div>`;
-}
-
-function partnerWall(organizations) {
-  return `<div class="partner-wall">${organizations.map(({ name, logo }) => `
-    <div class="partner-card">
-      ${logo ? `<span class="partner-mark"><img src="${basePath()}assets/companies/${logo}" alt="${name} logo" loading="lazy" decoding="async"></span>` : ""}
-      <span>${name}</span>
-    </div>`).join("")}
   </div>`;
 }
 
@@ -432,7 +401,7 @@ function renderSolutionDetail() {
         <h3>Systems and services</h3>
         <ul class="item-grid">${item.items.map(text => `<li>${text}</li>`).join("")}</ul>
         <div class="scope-note"><strong>Additional detail.</strong> ${item.related}</div>
-        <p class="detail-link"><a class="text-link" href="../partners.html">View the technology ecosystem →</a></p>
+        <p class="detail-link"><a class="text-link" href="../experience.html">Explore our team's past experience →</a></p>
       </div>
     </div></section>
     ${ctaBand("Discuss a scope", "Talk to TFG about your requirements and delivery context.", "../contact.html", "Contact TFG")}`;
@@ -454,42 +423,20 @@ function renderIndustries() {
     ${ctaBand("Sector requirements differ", "Share your operating context and the outcomes you need.", "contact.html", "Make an enquiry")}`;
 }
 
-function renderPartners() {
-  return `${hero("Technology ecosystem", "A technology ecosystem across enterprise and industry.", "Technology companies, manufacturers and platforms support work across ICT, communications, enterprise IT, automation and control.", `<strong>Relationship clarity</strong>These names represent technologies and companies in TFG's ecosystem. Formal partnership or authorisation status is not implied and is confirmed for each engagement.`)}
-    <section class="section"><div class="container">
-      <div class="section-heading"><div><span class="eyebrow section-kicker">Companies &amp; manufacturers</span><h2>Organised by technology area.</h2></div><p>Explore the companies and manufacturers referenced across communications, security, industrial automation and enterprise IT.</p></div>
-      <p class="relationship-note">This ecosystem is not a blanket claim of formal partnership, certification, reseller status or current authorisation. Confirm the specific relationship and product availability for each project.</p>
-      <div class="partner-categories">${partners.map(group => `<section class="partner-category"><h3>${group.group}</h3>${partnerWall(group.names)}</section>`).join("")}</div>
-    </div></section>
-    <section class="section section-compact"><div class="container">
-      <div class="section-heading"><div><span class="eyebrow section-kicker">Platforms &amp; technologies</span><h2>Systems and product families.</h2></div><p>Examples of platforms and product families across industrial automation and enterprise IT. Product fit and versions are confirmed against each requirement.</p></div>
-      <div class="platform-list">
-        <div><strong>Honeywell</strong><span>Experion PKS, TPS / TDC3000, ML-200, HC-900 and PlantCruise.</span></div>
-        <div><strong>Emerson</strong><span>DeltaV DCS.</span></div>
-        <div><strong>ABB</strong><span>AC500 and S500 PLCs; CP600 and Compact HMI 800; AC 800M DCS.</span></div>
-        <div><strong>Rockwell / Allen-Bradley</strong><span>SLC 500 and SmartGuard 600.</span></div>
-        <div><strong>Siemens</strong><span>S7-300, S7-400, S7-1200 and S7-1500 PLCs.</span></div>
-        <div><strong>ManageEngine</strong><span>Enterprise IT management platform used across infrastructure management and security-related capabilities.</span></div>
-      </div>
-      <div class="scope-note scope-note-spaced"><strong>Before procurement or proposal.</strong> Confirm the specific vendor relationship, authorisation, product version and availability directly with TFG for the relevant scope.</div>
-    </div></section>
-    ${ctaBand("Need a particular platform?", "Ask us about fit, implementation scope and current status.", "contact.html", "Enquire with TFG")}`;
-}
-
 function renderExperience() {
-  return `${hero("Experience", "Industrial and digital experience.", "TFG brings enterprise technology, industrial automation and engineering capabilities to a varied client ecosystem.", `<strong>Experience, accurately presented</strong>Organisation references, team experience and project experience are described separately. No client-specific scope or outcome is implied.`)}
+  return `${hero("Our past experience", "Experience across industry and enterprise.", "Our team has worked across industrial automation, enterprise technology and engineering. That experience informs how we understand requirements and deliver projects today.", `<strong>Team experience</strong>TechFusionGulf was established in 2023. The experience shared here is the professional and project background our team brings to the company.`)}
     <section class="section"><div class="container">
-      <div class="section-heading"><div><span class="eyebrow section-kicker">Company ecosystem</span><h2>Organisations across industry and enterprise.</h2></div><p>The organisations below are grouped by sector. Their inclusion does not imply endorsement or assign a particular project, contract or relationship type.</p></div>
-      ${companyEcosystem()}
-      <p class="company-note">The available information does not specify the engagement type for every organisation; entries should not be read as confirmed direct-client relationships. Some organisations have official-site links and verified marks. Where a mark could not be confidently matched, the organisation is shown by name only.</p>
+      <div class="section-heading"><div><span class="eyebrow section-kicker">Past work</span><h2>Prior experience across organisations and sectors.</h2></div><p>Our team's professional experience spans the organisations and sectors below. These references reflect prior team experience, not a list of current TechFusionGulf client contracts.</p></div>
+      ${pastExperienceOrganizations()}
+      <p class="company-note">These names reflect the professional backgrounds and prior project environments of TFG team members. They are not a list of current TechFusionGulf customers, and their inclusion does not imply endorsement or a current commercial relationship.</p>
     </div></section>
     <section class="section section-compact"><div class="container">
       <div class="experience-feature">
-        <div><span class="eyebrow section-kicker">Team project experience</span><h2>Automation work across several regions.</h2><p class="body-copy">The TFG team has executed automation projects in India and internationally, including work in Canada, the United Kingdom, the United States, Oman and the Philippines.</p></div>
+        <div><span class="eyebrow section-kicker">Past project experience</span><h2>Automation work across several regions.</h2><p class="body-copy">Our team members have delivered automation project work in India and internationally, including in Canada, the United Kingdom, the United States, Oman and the Philippines.</p></div>
         <div class="scope-note"><strong>Project-specific details.</strong> Client names, scopes, dates and outcomes are not attributed here because individual project references have not been supplied for publication.</div>
       </div>
     </div></section>
-    ${ctaBand("Looking for relevant experience?", "Tell us about your project and we can discuss the closest matching capabilities.", "contact.html", "Talk to TFG")}`;
+    ${ctaBand("Experience relevant to your project", "Tell us what you need to deliver and we can discuss the closest matching capabilities.", "contact.html", "Talk to TFG")}`;
 }
 
 function renderAbout() {
@@ -525,6 +472,12 @@ function renderAbout() {
 
 
 function renderNorden() {
+  const portfolioHighlights = [
+    { title: "Intelligent surveillance", image: "Norden-Communication-cctv-camera.jpg", alt: "Norden CCTV camera products", source: "https://nordencommunication.com/products/surveillance-systems/" },
+    { title: "Critical power", image: "Norden-Communication-ups.jpg", alt: "Norden uninterruptible power supply products", source: "https://nordencommunication.com/products/power-solutions/" },
+    { title: "Data centre cabinets", image: "Norden-Floor-Stand-Cabinet.webp", alt: "Norden floor-standing network cabinet", source: "https://nordencommunication.com/products/cabinets/" },
+    { title: "Structured cabling", image: "Structured-Cabling-Solutions-from-Norden-Communication.png", alt: "Norden structured cabling and network connectivity products", source: "https://nordencommunication.com/products/cabling-solutions/" }
+  ];
   const categoryCards = nordenCategories.map((category, index) => `
     <a class="norden-category-card" href="#catalogue" data-category-link="${category.id}">
       <span class="card-index">${String(index + 1).padStart(2, "0")}</span>
@@ -550,6 +503,17 @@ function renderNorden() {
         <p class="body-copy">TechFusionGulf makes Norden's product portfolio accessible to customers in Oman. Browse the product families below and contact our team for model selection, current documentation, availability and quotations.</p>
         <a class="button" href="${nordenEnquiryHref()}">Enquire about Norden <span aria-hidden="true">↗</span></a>
       </div>
+    </div></section>
+    <section class="section section-compact"><div class="container">
+      <div class="section-heading"><div><span class="eyebrow section-kicker">Norden portfolio</span><h2>A closer look at selected product ranges.</h2></div><p>Explore official Norden product pages for surveillance, power, cabinets and structured cabling.</p></div>
+      <div class="norden-portfolio-grid">${portfolioHighlights.map(item => `
+        <figure class="norden-portfolio-card">
+          <a href="${item.source}" target="_blank" rel="noopener noreferrer" aria-label="View Norden ${item.title.toLowerCase()} on the official Norden Communication website">
+            <img src="${basePath()}assets/norden/${item.image}" alt="${item.alt}" loading="lazy" decoding="async">
+          </a>
+          <figcaption><span>${item.title}</span><a href="${item.source}" target="_blank" rel="noopener noreferrer">Norden Communication ↗</a></figcaption>
+        </figure>`).join("")}</div>
+      <p class="company-note">Product imagery courtesy of <a href="https://nordencommunication.com/" target="_blank" rel="noopener noreferrer">Norden Communication</a>; images link to the corresponding official product pages.</p>
     </div></section>
     <section class="section"><div class="container">
       <div class="section-heading"><div><span class="eyebrow section-kicker">Product portfolio</span><h2>Explore by category.</h2></div><p>Browse the main product areas within Norden's portfolio. Select a category to view its product families.</p></div>
@@ -626,7 +590,6 @@ const pages = {
   solutions: renderSolutions,
   solution: renderSolutionDetail,
   industries: renderIndustries,
-  partners: renderPartners,
   experience: renderExperience,
   about: renderAbout,
   norden: renderNorden,

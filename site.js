@@ -577,7 +577,6 @@ const pages = {
   solutions: renderSolutions,
   solution: renderSolutionDetail,
   industries: renderIndustries,
-  partners: renderPartners,
   experience: renderExperience,
   about: renderAbout,
   norden: renderNorden,

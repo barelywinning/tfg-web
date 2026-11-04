@@ -192,7 +192,7 @@ function renderHeader() {
       <div class="header-inner">
         <a class="brand" href="${basePath()}index.html" aria-label="TechFusionGulf home">
           <span class="brand-mark"><img class="brand-logo" src="${basePath()}assets/brand/tfg-logo.png" alt=""></span>
-          <span class="brand-name"><strong>TechFusionGulf</strong><span>Technology. Infrastructure. Engineering.</span></span>
+          <span class="brand-name"><strong>TechFusionGulf</strong><span>Technology. Infrastructure. Engineering.</span><span class="brand-location">Muscat, GCC and Beyond</span></span>
         </a>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation">☰</button>
         <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
@@ -206,7 +206,7 @@ function renderHeader() {
           </details>
           ${navLink("industries.html", "Industries", active === "industries")}
           ${navLink("norden.html", "Norden", active === "norden")}
-          ${navLink("experience.html", "Past Experience", active === "experience")}
+          ${navLink("experience.html", "Experience", active === "experience")}
           ${navLink("about.html", "About", active === "about")}
           ${navLink("contact.html", "Contact", active === "contact")}
         </nav>
@@ -247,7 +247,7 @@ function renderFooter() {
           <div class="footer-brand">
             <a class="brand" href="${basePath()}index.html">
               <span class="brand-mark"><img class="brand-logo" src="${basePath()}assets/brand/tfg-logo.png" alt=""></span>
-              <span class="brand-name"><strong>TechFusionGulf</strong><span>Technology. Infrastructure. Engineering.</span></span>
+              <span class="brand-name"><strong>TechFusionGulf</strong><span>Technology. Infrastructure. Engineering.</span><span class="brand-location">Muscat, GCC and Beyond</span></span>
             </a>
             <p>A multidisciplinary ICT, engineering and technology solutions company based in Muscat, Sultanate of Oman.</p>
           </div>
@@ -255,7 +255,7 @@ function renderFooter() {
             <a href="${basePath()}solutions.html">Solutions</a>
             <a href="${basePath()}industries.html">Industries</a>
             <a href="${basePath()}norden.html">Norden products</a>
-            <a href="${basePath()}experience.html">Past experience</a>
+            <a href="${basePath()}experience.html">Experience</a>
           </div>
           <div class="footer-column"><strong>Company</strong>
             <a href="${basePath()}about.html">About TFG</a>
@@ -331,7 +331,7 @@ function renderHome() {
     </div></section>
     <section class="section"><div class="container">
       <div class="section-heading"><div><span class="eyebrow section-kicker">Past experience</span><h2>Experience our team brings to today's work.</h2></div><p>Our team has worked across industrial and digital environments. Explore the experience behind TechFusionGulf's capabilities.</p></div>
-      <p><a class="text-link" href="experience.html">Explore our past experience →</a></p>
+      <p><a class="text-link" href="experience.html">Explore our experience →</a></p>
     </div></section>
     <section class="section section-compact"><div class="container">
       <div class="section-heading"><div><span class="eyebrow section-kicker">How we engage</span><h2>From requirements to support.</h2></div><p>Engagements can include the phases below, with the work shaped to the agreed scope and customer requirements.</p></div>
@@ -401,7 +401,7 @@ function renderSolutionDetail() {
         <h3>Systems and services</h3>
         <ul class="item-grid">${item.items.map(text => `<li>${text}</li>`).join("")}</ul>
         <div class="scope-note"><strong>Additional detail.</strong> ${item.related}</div>
-        <p class="detail-link"><a class="text-link" href="../experience.html">Explore our team's past experience →</a></p>
+        <p class="detail-link"><a class="text-link" href="../experience.html">Explore our team's experience →</a></p>
       </div>
     </div></section>
     ${ctaBand("Discuss a scope", "Talk to TFG about your requirements and delivery context.", "../contact.html", "Contact TFG")}`;
@@ -424,16 +424,15 @@ function renderIndustries() {
 }
 
 function renderExperience() {
-  return `${hero("Our past experience", "Experience across industry and enterprise.", "Our team has worked across industrial automation, enterprise technology and engineering. That experience informs how we understand requirements and deliver projects today.", `<strong>Team experience</strong>TechFusionGulf was established in 2023. The experience shared here is the professional and project background our team brings to the company.`)}
+  return `${hero("Our experience", "Experience across industry and enterprise.", "Our team brings experience across industrial automation, enterprise technology and engineering. That breadth informs how we understand requirements and approach complex projects.", `<strong>Team experience</strong>Professional experience across industrial, commercial and enterprise environments.`)}
     <section class="section"><div class="container">
-      <div class="section-heading"><div><span class="eyebrow section-kicker">Past work</span><h2>Prior experience across organisations and sectors.</h2></div><p>Our team's professional experience spans the organisations and sectors below. These references reflect prior team experience, not a list of current TechFusionGulf client contracts.</p></div>
+      <div class="section-heading"><div><span class="eyebrow section-kicker">Experience</span><h2>Experience across organisations and sectors.</h2></div><p>Our team's professional experience spans the organisations and sectors below.</p></div>
       ${pastExperienceOrganizations()}
-      <p class="company-note">These names reflect the professional backgrounds and prior project environments of TFG team members. They are not a list of current TechFusionGulf customers, and their inclusion does not imply endorsement or a current commercial relationship.</p>
     </div></section>
     <section class="section section-compact"><div class="container">
       <div class="experience-feature">
-        <div><span class="eyebrow section-kicker">Past project experience</span><h2>Automation work across several regions.</h2><p class="body-copy">Our team members have delivered automation project work in India and internationally, including in Canada, the United Kingdom, the United States, Oman and the Philippines.</p></div>
-        <div class="scope-note"><strong>Project-specific details.</strong> Client names, scopes, dates and outcomes are not attributed here because individual project references have not been supplied for publication.</div>
+        <div><span class="eyebrow section-kicker">Project experience</span><h2>Automation work across several regions.</h2><p class="body-copy">Our team members have delivered automation project work in India and internationally, including in Canada, the United Kingdom, the United States, Oman and the Philippines.</p></div>
+        <div class="scope-note"><strong>Regional experience</strong><p>India · Canada · United Kingdom · United States · Oman · Philippines</p></div>
       </div>
     </div></section>
     ${ctaBand("Experience relevant to your project", "Tell us what you need to deliver and we can discuss the closest matching capabilities.", "contact.html", "Talk to TFG")}`;
@@ -473,10 +472,10 @@ function renderAbout() {
 
 function renderNorden() {
   const portfolioHighlights = [
-    { title: "Intelligent surveillance", image: "Norden-Communication-cctv-camera.jpg", alt: "Norden CCTV camera products", source: "https://nordencommunication.com/products/surveillance-systems/" },
-    { title: "Critical power", image: "Norden-Communication-ups.jpg", alt: "Norden uninterruptible power supply products", source: "https://nordencommunication.com/products/power-solutions/" },
-    { title: "Data centre cabinets", image: "Norden-Floor-Stand-Cabinet.webp", alt: "Norden floor-standing network cabinet", source: "https://nordencommunication.com/products/cabinets/" },
-    { title: "Structured cabling", image: "Structured-Cabling-Solutions-from-Norden-Communication.png", alt: "Norden structured cabling and network connectivity products", source: "https://nordencommunication.com/products/cabling-solutions/" }
+    { title: "Intelligent surveillance", image: "Norden-Communication-cctv-camera.jpg", alt: "Norden CCTV camera products" },
+    { title: "Critical power", image: "Norden-Communication-ups.jpg", alt: "Norden uninterruptible power supply products" },
+    { title: "Data centre cabinets", image: "Norden-Floor-Stand-Cabinet.webp", alt: "Norden floor-standing network cabinet" },
+    { title: "Structured cabling", image: "Structured-Cabling-Solutions-from-Norden-Communication.png", alt: "Norden structured cabling and network connectivity products" }
   ];
   const categoryCards = nordenCategories.map((category, index) => `
     <a class="norden-category-card" href="#catalogue" data-category-link="${category.id}">
@@ -505,15 +504,15 @@ function renderNorden() {
       </div>
     </div></section>
     <section class="section section-compact"><div class="container">
-      <div class="section-heading"><div><span class="eyebrow section-kicker">Norden portfolio</span><h2>A closer look at selected product ranges.</h2></div><p>Explore official Norden product pages for surveillance, power, cabinets and structured cabling.</p></div>
+      <div class="section-heading"><div><span class="eyebrow section-kicker">Norden portfolio</span><h2>A closer look at selected product ranges.</h2></div><p>Explore selected product ranges and send your enquiry directly to TechFusionGulf.</p></div>
       <div class="norden-portfolio-grid">${portfolioHighlights.map(item => `
         <figure class="norden-portfolio-card">
-          <a href="${item.source}" target="_blank" rel="noopener noreferrer" aria-label="View Norden ${item.title.toLowerCase()} on the official Norden Communication website">
+          <div class="norden-portfolio-image">
             <img src="${basePath()}assets/norden/${item.image}" alt="${item.alt}" loading="lazy" decoding="async">
-          </a>
-          <figcaption><span>${item.title}</span><a href="${item.source}" target="_blank" rel="noopener noreferrer">Norden Communication ↗</a></figcaption>
+          </div>
+          <figcaption><span>${item.title}</span><span class="norden-portfolio-label">Enquire through TechFusionGulf</span></figcaption>
         </figure>`).join("")}</div>
-      <p class="company-note">Product imagery courtesy of <a href="https://nordencommunication.com/" target="_blank" rel="noopener noreferrer">Norden Communication</a>; images link to the corresponding official product pages.</p>
+      <p class="company-note">Product imagery: Norden Communication.</p>
     </div></section>
     <section class="section"><div class="container">
       <div class="section-heading"><div><span class="eyebrow section-kicker">Product portfolio</span><h2>Explore by category.</h2></div><p>Browse the main product areas within Norden's portfolio. Select a category to view its product families.</p></div>

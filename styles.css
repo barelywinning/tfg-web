@@ -81,6 +81,12 @@ button, a { -webkit-tap-highlight-color: transparent; }
   letter-spacing: 0;
   white-space: nowrap;
 }
+.brand-name .brand-location {
+  color: var(--accent-dark);
+  font: 700 8px/1.2 "Manrope", sans-serif;
+  letter-spacing: .055em;
+  text-transform: uppercase;
+}
 .primary-nav { display: flex; align-items: center; gap: 23px; }
 .primary-nav > a, .nav-dropdown summary {
   color: var(--ink);

@@ -73,6 +73,60 @@ const solutions = [
   }
 ];
 
+
+const nordenCategories = [
+  { id: "surveillance", title: "Surveillance Systems", description: "Cameras, recording and video surveillance infrastructure." },
+  { id: "cabling", title: "Cabling Solutions", description: "Copper and fibre connectivity, cabinets, racks and cabling infrastructure." },
+  { id: "pro-av", title: "Pro AV Solutions", description: "Professional audio, video, conferencing, displays and AVoIP." },
+  { id: "power", title: "Power Solutions", description: "Power continuity and conversion products, including UPS and solar inverters." },
+  { id: "access-control", title: "Access Control Systems", description: "Biometric controllers, access panels and readers." },
+  { id: "fire-alarm", title: "Fire Alarm Systems", description: "Fire alarm panels, detectors, modules and associated cabling." },
+  { id: "data-centres", title: "Data Centres", description: "Racks, containment, infrastructure management and cooling." },
+  { id: "lenexa", title: "Lenexa", description: "AI-enabled video management and analytics solutions." }
+];
+
+const nordenProductFamilies = [
+  ["surveillance","Thermal Cameras","Thermal imaging options for specialist surveillance requirements."],
+  ["surveillance","PTZ Cameras","Pan, tilt and zoom cameras for flexible area coverage."],
+  ["surveillance","Dome Cameras","Dome-format cameras for indoor and outdoor surveillance."],
+  ["surveillance","Bullet Cameras","Bullet-format cameras for perimeter and general surveillance."],
+  ["surveillance","Explosion-proof Cameras","Specialist camera options for demanding hazardous environments."],
+  ["surveillance","Body-worn Cameras","Wearable video capture for mobile personnel."],
+  ["surveillance","Vehicle Cameras","Video surveillance options for vehicle applications."],
+  ["surveillance","Network Video Recorders","Recording and management hardware for video surveillance systems."],
+  ["cabling","Copper Cabling","Structured copper cabling products for network connectivity."],
+  ["cabling","Fibre-optic Cabling","Fibre connectivity products for data and communications networks."],
+  ["cabling","Network Cabinets & Racks","Enclosures and rack infrastructure for network equipment."],
+  ["cabling","Power Distribution Units","Rack-level power distribution products."],
+  ["cabling","Fire-resistant Cables","Cable options for fire and life-safety system installations."],
+  ["pro-av","Public Address & Voice Alarm","PA and PAVA systems for communication and emergency announcements."],
+  ["pro-av","Audio Conferencing","Audio solutions for meeting and collaboration spaces."],
+  ["pro-av","Professional Displays","Display solutions for commercial and collaboration environments."],
+  ["pro-av","Audio-Video over IP","Network-based distribution of professional audio and video."],
+  ["power","Uninterruptible Power Supplies","UPS products for continuity of critical electrical loads."],
+  ["power","Solar Inverters","Power conversion products for solar installations."],
+  ["access-control","Biometric Controllers","Biometric access control hardware."],
+  ["access-control","Access Control Panels","Control panels for electronic access management."],
+  ["access-control","Access Readers","Reader devices for credential-based entry systems."],
+  ["fire-alarm","Fire Alarm Panels","Control and indication panels for fire detection systems."],
+  ["fire-alarm","Fire Detectors","Detection devices for fire alarm installations."],
+  ["fire-alarm","Fire Alarm Modules","Modules and interface components for fire alarm systems."],
+  ["data-centres","Data Centre Cabinets","Cabinet infrastructure for data centre environments."],
+  ["data-centres","Containment Systems","Containment solutions for organised data centre infrastructure."],
+  ["data-centres","Data Centre Infrastructure Management","DCIM tools for monitoring and managing data centre infrastructure."],
+  ["data-centres","Precision Cooling","Cooling solutions for data centre environments."],
+  ["lenexa","Video Management Software","Video management software for surveillance environments."],
+  ["lenexa","Video Analytics","AI-enabled video analytics capabilities."]
+].map(([category,title,description]) => ({category,title,description}));
+
+function nordenEnquiryHref(productName = "") {
+  const subject = productName ? `Norden product enquiry: ${productName}` : "Norden product enquiry";
+  const body = productName
+    ? `Hello TechFusionGulf,\n\nI would like to enquire about: ${productName}.\n\nPlease share the relevant product information, datasheet and quotation details.\n\nOrganisation: \nName: \nContact number: `
+    : "Hello TechFusionGulf,\n\nI would like to enquire about Norden products.\n\nProduct / category: \nOrganisation: \nName: \nContact number: ";
+  return `mailto:sales@techfusiongulf.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
 const industryGroups = [
   { title: "Industrial & Energy", prominent: true, industries: ["Oil & gas", "Water & power", "Manufacturing", "Transportation & logistics", "Defence"] },
   { title: "Enterprise & Financial", industries: ["Banking & financial services", "Insurance", "Telecommunications", "Payment gateways"] },
@@ -167,6 +221,7 @@ function renderHeader() {
             </div>
           </details>
           ${navLink("industries.html", "Industries", active === "industries")}
+          ${navLink("norden.html", "Norden", active === "norden")}
           ${navLink("experience.html", "Our Experience", active === "experience")}
           ${navLink("partners.html", "Partners", active === "partners")}
           ${navLink("about.html", "About", active === "about")}
@@ -216,6 +271,7 @@ function renderFooter() {
           <div class="footer-column"><strong>Explore</strong>
             <a href="${basePath()}solutions.html">Solutions</a>
             <a href="${basePath()}industries.html">Industries</a>
+            <a href="${basePath()}norden.html">Norden products</a>
             <a href="${basePath()}experience.html">Our Experience</a>
             <a href="${basePath()}partners.html">Partners &amp; platforms</a>
           </div>
@@ -262,6 +318,20 @@ function renderHome() {
       <div class="stat"><span class="stat-index" aria-hidden="true">03</span><strong>Engineering &amp; Instrumentation</strong><span>Design, integration &amp; field services</span></div>
       <div class="stat"><span class="stat-index" aria-hidden="true">04</span><strong>Building &amp; Digital Solutions</strong><span>Building systems, ELV &amp; software</span></div>
     </div></div>
+    <section class="section norden-home-feature"><div class="container norden-feature-grid">
+      <div class="norden-feature-copy">
+        <span class="eyebrow section-kicker">Featured distribution portfolio · Oman</span>
+        <h2>Norden products.<br>Through TechFusionGulf.</h2>
+        <p class="body-copy">Explore Norden's portfolio of surveillance, connectivity, professional AV, power and building technology products available through TechFusionGulf in Oman.</p>
+        <a class="text-link" href="norden.html">Explore the Norden catalogue →</a>
+      </div>
+      <div class="norden-feature-categories" aria-label="Norden product categories">
+        <a href="norden.html#catalogue"><span>01</span><strong>Surveillance systems</strong><b>↗</b></a>
+        <a href="norden.html#catalogue"><span>02</span><strong>Cabling solutions</strong><b>↗</b></a>
+        <a href="norden.html#catalogue"><span>03</span><strong>Pro AV &amp; communications</strong><b>↗</b></a>
+        <a href="norden.html#catalogue"><span>04</span><strong>Power &amp; infrastructure</strong><b>↗</b></a>
+      </div>
+    </div></section>
     <section class="section section-compact"><div class="container">
       <div class="section-heading"><div><span class="eyebrow section-kicker">What we do</span><h2>Connected disciplines.<br>Practical delivery.</h2></div><p>Bring together the capabilities required for a project, from infrastructure and control systems to engineering and software.</p></div>
       <div class="division-grid">${solutionDivisions.map((division, index) => `<a class="division-card" href="solutions.html#${division.id}"><span class="card-index">${String(index + 1).padStart(2, "0")}</span><h3>${division.title}</h3><p>${division.description}</p><span class="card-arrow">Explore division →</span></a>`).join("")}</div>
@@ -453,6 +523,90 @@ function renderAbout() {
     ${ctaBand("Based in Muscat", "Connect with TechFusionGulf about your project or enquiry.", "contact.html", "Contact the team")}`;
 }
 
+
+function renderNorden() {
+  const categoryCards = nordenCategories.map((category, index) => `
+    <a class="norden-category-card" href="#catalogue" data-category-link="${category.id}">
+      <span class="card-index">${String(index + 1).padStart(2, "0")}</span>
+      <h3>${category.title}</h3>
+      <p>${category.description}</p>
+      <span class="card-arrow">Explore products →</span>
+    </a>`).join("");
+  const productCards = nordenProductFamilies.map(product => {
+    const category = nordenCategories.find(item => item.id === product.category);
+    return `
+      <article class="norden-product-card" data-category="${product.category}" data-search="${(product.title + " " + product.description + " " + category.title).toLowerCase()}">
+        <span class="norden-product-category">${category.title}</span>
+        <h3>${product.title}</h3>
+        <p>${product.description}</p>
+        <a class="text-link" href="${nordenEnquiryHref(product.title)}">Enquire about this product →</a>
+      </article>`;
+  }).join("");
+  return `${hero("Norden · Distribution in Oman", "Norden technology, through TechFusionGulf.", "Explore Norden's portfolio of products across surveillance, cabling, professional AV, power, access control, fire safety and data-centre infrastructure.", `<strong>Product enquiries</strong>Contact TechFusionGulf for product information, model-specific specifications, datasheets and quotation requests in Oman.`)}
+    <section class="section section-compact"><div class="container">
+      <div class="norden-intro-panel">
+        <span class="eyebrow section-kicker">Norden at TechFusionGulf</span>
+        <h2>Technology for connected, secure and operational environments.</h2>
+        <p class="body-copy">TechFusionGulf makes Norden's product portfolio accessible to customers in Oman. Browse the product families below and contact our team for model selection, current documentation, availability and quotations.</p>
+        <a class="button" href="${nordenEnquiryHref()}">Enquire about Norden <span aria-hidden="true">↗</span></a>
+      </div>
+    </div></section>
+    <section class="section"><div class="container">
+      <div class="section-heading"><div><span class="eyebrow section-kicker">Product portfolio</span><h2>Explore by category.</h2></div><p>Browse the main product areas within Norden's portfolio. Select a category to view its product families.</p></div>
+      <div class="norden-category-grid">${categoryCards}</div>
+    </div></section>
+    <section class="section section-compact" id="catalogue"><div class="container">
+      <div class="section-heading"><div><span class="eyebrow section-kicker">Norden catalogue</span><h2>Browse product families.</h2></div><p>Use the search and category filter to find a product family, then send an enquiry directly to TechFusionGulf.</p></div>
+      <div class="norden-catalogue-controls">
+        <label class="norden-search-label" for="norden-search">Search catalogue
+          <input id="norden-search" type="search" placeholder="Search products or categories" autocomplete="off">
+        </label>
+        <label class="norden-filter-label" for="norden-category-filter">Category
+          <select id="norden-category-filter">
+            <option value="all">All categories</option>
+            ${nordenCategories.map(category => `<option value="${category.id}">${category.title}</option>`).join("")}
+          </select>
+        </label>
+      </div>
+      <p class="norden-results-count" id="norden-results-count" aria-live="polite">${nordenProductFamilies.length} product families</p>
+      <div class="norden-product-grid" id="norden-product-grid">${productCards}</div>
+      <p class="norden-empty-state" id="norden-empty-state" hidden>No product families match that search. Try another term or category.</p>
+      <p class="company-note">This catalogue presents product families, not a live stock list. Exact models, technical specifications, datasheets, compatibility and availability are confirmed against current Norden documentation for each enquiry.</p>
+    </div></section>
+    ${ctaBand("Norden product enquiries", "Looking for a particular product or specification?", nordenEnquiryHref(), "Enquire with TFG")}`;
+}
+
+function initNordenCatalogue() {
+  const search = document.querySelector("#norden-search");
+  const filter = document.querySelector("#norden-category-filter");
+  const grid = document.querySelector("#norden-product-grid");
+  if (!search || !filter || !grid) return;
+  const cards = [...grid.querySelectorAll(".norden-product-card")];
+  const count = document.querySelector("#norden-results-count");
+  const empty = document.querySelector("#norden-empty-state");
+  const update = () => {
+    const query = search.value.trim().toLowerCase();
+    const category = filter.value;
+    let visible = 0;
+    cards.forEach(card => {
+      const show = (!query || card.dataset.search.includes(query)) &&
+        (category === "all" || card.dataset.category === category);
+      card.hidden = !show;
+      if (show) visible += 1;
+    });
+    count.textContent = `${visible} product famil${visible === 1 ? "y" : "ies"}`;
+    empty.hidden = visible !== 0;
+  };
+  search.addEventListener("input", update);
+  filter.addEventListener("change", update);
+  document.querySelectorAll("[data-category-link]").forEach(link => {
+    link.addEventListener("click", () => {
+      filter.value = link.dataset.categoryLink;
+      update();
+    });
+  });
+}
+
 function renderContact() {
   return `${hero("Contact", "Start with a conversation.", "Share a project, service or technology enquiry with TechFusionGulf. Include enough context for the team to direct your message.")}
     <section class="section"><div class="container contact-grid">
@@ -475,6 +629,7 @@ const pages = {
   partners: renderPartners,
   experience: renderExperience,
   about: renderAbout,
+  norden: renderNorden,
   contact: renderContact
 };
 
@@ -484,4 +639,5 @@ const page = pages[document.body.dataset.page];
 if (page) {
   const content = page();
   if (content) document.querySelector("#main-content").innerHTML = content;
+  if (document.body.dataset.page === "norden") initNordenCatalogue();
 }

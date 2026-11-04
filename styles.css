@@ -406,6 +406,43 @@ h3 { margin-bottom: 10px; font-size: 18px; line-height: 1.3; letter-spacing: -.0
 .footer-bottom { display: flex; justify-content: space-between; gap: 20px; padding-top: 19px; border-top: 1px solid rgba(255,255,255,.2); color: rgba(255,255,255,.72); font-size: 10px; }
 .footer-bottom a { color: inherit; }
 
+
+/* Norden distribution feature and catalogue */
+.norden-home-feature { background: var(--soft-green); }
+.norden-feature-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(35px, 6vw, 76px); align-items: center; }
+.norden-feature-copy h2 { max-width: 530px; margin: 0 0 18px; font-size: clamp(30px, 4vw, 47px); line-height: 1.12; letter-spacing: -.045em; }
+.norden-feature-copy .body-copy { max-width: 520px; margin-bottom: 24px; }
+.norden-feature-categories { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.norden-feature-categories a { display: grid; grid-template-columns: 28px 1fr 16px; align-items: center; gap: 10px; min-height: 91px; padding: 17px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgba(255,255,255,.42); text-decoration: none; transition: background .18s ease; }
+.norden-feature-categories a:hover { background: white; }
+.norden-feature-categories span { color: var(--accent-dark); font: 700 10px "Manrope", sans-serif; }
+.norden-feature-categories strong { font: 700 13px/1.45 "Manrope", sans-serif; }
+.norden-feature-categories b { color: var(--accent-dark); font-size: 13px; }
+.norden-intro-panel { max-width: 900px; padding: clamp(26px, 5vw, 52px); border-left: 3px solid var(--accent); background: var(--soft-green); }
+.norden-intro-panel h2 { max-width: 700px; margin: 0 0 15px; font-size: clamp(27px, 3.3vw, 39px); line-height: 1.18; }
+.norden-intro-panel p { max-width: 720px; margin-bottom: 24px; }
+.norden-category-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.norden-category-card { display: flex; flex-direction: column; min-height: 220px; padding: 22px; border: 1px solid var(--line); background: rgba(255,255,255,.55); text-decoration: none; transition: border-color .18s ease, background .18s ease, transform .18s ease; }
+.norden-category-card:hover { border-color: var(--accent); background: white; transform: translateY(-2px); }
+.norden-category-card .card-index { margin-bottom: 25px; }
+.norden-category-card h3 { margin: 0 0 10px; font-size: 17px; }
+.norden-category-card p { flex: 1; margin: 0 0 18px; color: var(--muted); font-size: 12px; line-height: 1.65; }
+.norden-category-card .card-arrow { font-size: 11px; }
+.norden-catalogue-controls { display: grid; grid-template-columns: 1.5fr 1fr; gap: 14px; margin: 0 0 18px; }
+.norden-search-label, .norden-filter-label { display: grid; gap: 8px; color: var(--ink); font: 700 11px "Manrope", sans-serif; }
+.norden-search-label input, .norden-filter-label select { width: 100%; min-height: 48px; padding: 0 14px; border: 1px solid var(--line); border-radius: 0; background: white; color: var(--ink); font: 400 13px "DM Sans", sans-serif; }
+.norden-search-label input:focus, .norden-filter-label select:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
+.norden-results-count { margin: 0 0 13px; color: var(--muted); font-size: 11px; }
+.norden-product-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.norden-product-card { display: flex; flex-direction: column; min-height: 205px; padding: 21px; border: 1px solid var(--line); background: rgba(255,255,255,.62); }
+.norden-product-card[hidden] { display: none; }
+.norden-product-category { margin-bottom: 12px; color: var(--accent-dark); font: 700 9px "Manrope", sans-serif; letter-spacing: .1em; text-transform: uppercase; }
+.norden-product-card h3 { margin: 0 0 9px; font-size: 17px; }
+.norden-product-card p { flex: 1; margin: 0 0 17px; color: var(--muted); font-size: 12px; line-height: 1.65; }
+.norden-product-card .text-link { font-size: 11px; }
+.norden-empty-state { padding: 22px; border: 1px dashed var(--line); color: var(--muted); font-size: 13px; }
+.norden-empty-state[hidden] { display: none; }
+
 @media (max-width: 1000px) {
   .primary-nav { gap: 14px; }
   .primary-nav > a, .nav-dropdown summary { font-size: 11px; }
@@ -419,6 +456,8 @@ h3 { margin-bottom: 10px; font-size: 18px; line-height: 1.3; letter-spacing: -.0
   .company-wall { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .partner-grid { grid-template-columns: repeat(3, 1fr); }
   .footer-top { grid-template-columns: repeat(2, 1fr); }
+  .norden-category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .norden-product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 900px) {
   .header-inner, .footer-inner, .container { width: min(100% - 36px, var(--max-width)); }
@@ -452,7 +491,7 @@ h3 { margin-bottom: 10px; font-size: 18px; line-height: 1.3; letter-spacing: -.0
   .nav-dropdown .dropdown-panel { position: static; width: auto; margin: 0 0 7px; box-shadow: none; }
   .header-cta { display: none; }
   .hero { padding: 58px 0 76px; }
-  .hero-grid, .intro-grid, .experience-feature, .page-hero-grid, .details-layout, .contact-grid { grid-template-columns: 1fr; gap: 35px; }
+  .hero-grid, .intro-grid, .experience-feature, .page-hero-grid, .details-layout, .contact-grid, .norden-feature-grid { grid-template-columns: 1fr; gap: 35px; }
   .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 30px; }
   .hero-copy h1 { font-size: clamp(39px, 10vw, 58px); }
   .hero-image { width: 100%; min-height: 0; aspect-ratio: 1.45 / 1; }
@@ -483,6 +522,9 @@ h3 { margin-bottom: 10px; font-size: 18px; line-height: 1.3; letter-spacing: -.0
   .industry-groups { grid-template-columns: 1fr; }
   .industry-group-featured { grid-row: auto; min-height: 240px; }
   .category-grid { grid-template-columns: 1fr; }
+  .norden-category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .norden-product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .norden-catalogue-controls { grid-template-columns: 1fr; }
   .partner-categories { grid-template-columns: 1fr; gap: 25px; }
   .partner-wall { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .experience-list { grid-template-columns: repeat(2, 1fr); }
@@ -500,6 +542,7 @@ h3 { margin-bottom: 10px; font-size: 18px; line-height: 1.3; letter-spacing: -.0
   .brand-name span { font-size: 8px; }
   .hero-actions .button { flex: 1 1 100%; }
   .division-grid, .experience-list, .partner-grid, .values-grid { grid-template-columns: 1fr; }
+  .norden-category-grid, .norden-product-grid, .norden-feature-categories { grid-template-columns: 1fr; }
   .company-wall { grid-template-columns: 1fr; }
   .division-card { min-height: 170px; }
   .client-preview { grid-template-columns: repeat(2, 1fr); }
